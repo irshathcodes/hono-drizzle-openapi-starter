@@ -116,12 +116,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-
-- [Hono.js](https://hono.dev/)
-- [Drizzle ORM](https://orm.drizzle.team/)
-- And all other open-source projects that made this possible!
-
 ```
 open http://localhost:3000
 ```
