@@ -39,7 +39,7 @@ cp .env.example .env
 # Start the development database
 pnpm dev:db:start
 
-# Run migrations
+# Run migrations (Run it in a new terminal)
 pnpm dev:db:migrate
 
 # Run the development server
