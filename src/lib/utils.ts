@@ -36,7 +36,3 @@ export function registerRouteHandlers<
     router.openapi(routeConfig, handlers[key] as Handler<AppBindings>);
   });
 }
-
-export function getRandomId() {
-  return randomUUID()
-}

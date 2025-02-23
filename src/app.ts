@@ -1,8 +1,6 @@
 import { apiReference } from "@scalar/hono-api-reference";
-import authRouter from "./api/auth/auth.index.js";
-import createApp from "./lib/create-app.js";
-import storageRouter from "./api/storage/storage.index.js";
 import todosRouter from "./api/todos/todos.index.js";
+import createApp from "./lib/create-app.js";
 
 const app = createApp();
 
@@ -71,8 +69,6 @@ app.get(
 );
 
 const routes = [
-  authRouter,
-  storageRouter,
   todosRouter,
 ];
 

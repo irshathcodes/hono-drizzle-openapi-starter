@@ -1,10 +1,10 @@
-import { createAuthenticatedRouter } from "../../lib/router.js";
+import { createRouter } from "../../lib/router.js";
 import { registerRouteHandlers } from "../../lib/utils.js";
 import routes from "./todos.routes.js";
 import handlers from "./todos.handler.js";
 import todoMiddlewares from "./todos.middleware.js";
 
-const todosRouter = createAuthenticatedRouter();
+const todosRouter = createRouter();
 
 registerRouteHandlers(todosRouter, routes, todoMiddlewares, handlers);
 
