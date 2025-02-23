@@ -2,13 +2,12 @@ import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "../db/index.js";
 import { env } from "../env.js";
-import { openAPI, organization } from "better-auth/plugins";
+import { openAPI } from "better-auth/plugins";
 import * as schema from "../db/schema/auth-schema.js";
 import resend from "./email.js";
-import { getActiveOrganization } from "../use-cases/organization.js";
 
 export const auth = betterAuth({
-  appName: "kanbased",
+  appName: "todobased",
   database: drizzleAdapter(db, {
     provider: "pg",
     schema,
@@ -17,7 +16,7 @@ export const auth = betterAuth({
     enabled: true,
     sendResetPassword: async ({ user, url }) => {
       await resend.emails.send({
-        from: 'support@mail.kanbased.com',
+        from: 'support@mail.todobased.com',
         to: user.email,
         subject: "Reset your password",
         html: `<p>Click the link to reset your password: <a href="${url}">${url}</a></p>`,
@@ -29,7 +28,7 @@ export const auth = betterAuth({
     autoSignInAfterVerification: true,
     sendVerificationEmail: async ({ user, url }) => {
       await resend.emails.send({
-        from: 'support@mail.kanbased.com',
+        from: 'support@mail.todobased.com',
         to: user.email,
         subject: "Verify your email address",
         html: `<p>Click the link to verify your email: <a href="${url}">${url}</a></p>`,
@@ -53,24 +52,8 @@ export const auth = betterAuth({
       enabled: true,
     }
   },
-  databaseHooks: {
-    session: {
-      create: {
-        before: async (session) => {
-          const activeOrganizationId = await getActiveOrganization(session.userId);
-          return {
-            data: {
-              ...session,
-              activeOrganizationId
-            }
-          }
-        }
-      }
-    }
-  },
   plugins: [
     openAPI(),
-    organization(),
   ],
 
 });

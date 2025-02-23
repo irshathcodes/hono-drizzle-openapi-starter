@@ -2,26 +2,25 @@
 
 A modern, type-safe backend starter kit built with Hono.js and Drizzle ORM. This template provides a robust foundation for building scalable Node.js applications with PostgreSQL.
 
-## 🌟 Features
+## 🌟 Features Included
 
-- **[Hono.js](https://hono.dev/)** - Ultrafast web framework for the Edges
-- **[Drizzle ORM](https://orm.drizzle.team/)** - TypeScript ORM with maximum type safety
-- **[PostgreSQL](https://www.postgresql.org/)** - Powerful, open-source relational database
-- **[Zod](https://zod.dev/)** - TypeScript-first schema validation
-- **[OpenAPI/Swagger](https://swagger.io/)** - API documentation with @hono/swagger-ui
-- **[Scalar](https://scalar.com/)** - Beautiful API reference documentation
-- **[Pino](https://getpino.io/)** - Super fast, all natural JSON logger
-- **[Docker](https://www.docker.com/)** - Containerized development environment
-- **AWS S3 Integration** - File storage capabilities
-- **Authentication System** - Built-in auth system with better-auth
-- **Email Integration** - Email service integration with Resend
+- **Ultra-fast Web Framework** - Built with [Hono.js](https://hono.dev/), optimized for edge computing
+- **Type-safe Database Operations** - Powered by [Drizzle ORM](https://orm.drizzle.team/) for maximum type safety
+- **Robust Database System** - Using [PostgreSQL](https://www.postgresql.org/) for reliable data storage
+- **OpenAPI Documentation** - Implemented with [Zod Open](https://www.postgresql.org/) for API specifications
+- **Schema Validation** - Utilizing [Zod](https://zod.dev/) for TypeScript-first data validation
+- **Beautiful API Documentation** - Generated with [Scalar](https://scalar.com/) for comprehensive API references
+- **High-Performance Logging** - Implemented using [Pino](https://getpino.io/), a super fast JSON logger
+- **Local Development Environment** - Containerized with [Docker](https://www.docker.com/) for consistent development
+- **File Storage** - Cloud storage capabilities through AWS S3 integration
+- **User Authentication** - Secure authentication system implemented with better-auth
+- **Email Services** - Reliable email delivery integrated through Resend
 
 ## 📋 Prerequisites
 
-- Node.js 22.x
+- Node.js 22.x or higher
 - pnpm
 - Docker and Docker Compose (for local development)
-- PostgreSQL
 
 ## 🚀 Getting Started
 
@@ -116,6 +115,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-```
-open http://localhost:3000
-```
+## 🙏 Acknowledgments
+
+- [w3cj](https://github.com/w3cj/hono-open-api-starter) for the inspiration

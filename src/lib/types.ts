@@ -6,7 +6,7 @@ import type { PinoLogger } from "hono-pino";
 
 export type AuthCtx = {
   user: typeof auth.$Infer.Session.user;
-  session: Omit<typeof auth.$Infer.Session.session, "activeOrganizationId"> & { activeOrganizationId: string };
+  session: typeof auth.$Infer.Session;
 }
 
 export interface AppBindings {

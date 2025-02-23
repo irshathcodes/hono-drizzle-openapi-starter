@@ -1,11 +1,8 @@
 import { apiReference } from "@scalar/hono-api-reference";
 import authRouter from "./api/auth/auth.index.js";
-import boardsRouter from "./api/boards/boards.index.js";
-import columnsRouter from "./api/columns/columns.index.js";
-import tasksRouter from "./api/tasks/tasks.index.js";
 import createApp from "./lib/create-app.js";
-import packageJSON from "../package.json" with { type: "json" };
 import storageRouter from "./api/storage/storage.index.js";
+import todosRouter from "./api/todos/todos.index.js";
 
 const app = createApp();
 
@@ -53,8 +50,8 @@ app.get("/", (c) => {
 app.doc("/doc", {
   openapi: "3.0.0",
   info: {
-    version: packageJSON.version,
-    title: packageJSON.name,
+    version: "0.0.1",
+    title: "Kanbased API",
   },
 });
 
@@ -74,18 +71,15 @@ app.get(
 );
 
 const routes = [
-  boardsRouter,
-  columnsRouter,
-  tasksRouter,
+  authRouter,
   storageRouter,
+  todosRouter,
 ];
 
 
 
 routes.forEach((route) => {
-  app.route("/api/v1", route);
+  app.route("/api", route);
 });
-
-app.route("/api", authRouter);
 
 export default app;
