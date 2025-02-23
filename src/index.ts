@@ -2,7 +2,7 @@ import { serve } from "@hono/node-server";
 import app from "./app.js";
 import { env } from './env.js'
 
-const port = Number(env.BE_PORT);
+const port = Number(env.BE_PORT) ?? 5000;
 
 serve(
   {

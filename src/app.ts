@@ -6,50 +6,63 @@ const app = createApp();
 
 app.get("/", (c) => {
   return c.html(`
-    <html>
-      <style>
-        * {
-        font-family: system-ui, sans-serif;
-        body {
-          width: fit-content;
-          margin: 2rem auto;
-        }
-      @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #121212;
-        color: #ffffff;
-      }
-      a {
-      color: lightblue;
-      }
-      h2 {
-      margin-top: 4rem;
-      }
-      }
-      }
-      </style>
+    <!DOCTYPE html>
+    <html lang="en">
       <head>
-        <title>Kanbased API</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hono + Drizzle</title>
+        <style>
+          * {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, sans-serif;
+          }
+          body {
+            padding: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+          }
+          h1 {
+            margin-bottom: 1rem;
+            color: #3b82f6;
+          }
+          a {
+            color: #3b82f6;
+            text-decoration: none;
+          }
+          a:hover {
+            text-decoration: underline;
+          }
+          ul {
+            margin: 1rem 0;
+            list-style: inside;
+          }
+          @media (prefers-color-scheme: dark) {
+            body {
+              background: #111827;
+              color: #fff;
+            }
+          }
+        </style>
       </head>
       <body>
-        <h1>Api for <a href="https://kanbased.com" target"_blank" rel="noopener noreferrer">Kanbased App</a></h1>
-        <h2>Documentation</h2>
+        <h1>Hono + Drizzle Starter</h1>
         <ul>
-          <li><a href="/reference">Scalar Documentation</a></li>
-          <li><a href="/doc">OpenAPI Documentation</a></li>
+          <li><a href="/reference">API Reference</a></li>
+          <li><a href="/doc">OpenAPI Spec</a></li>
         </ul>
       </body>
     </html>
-    `)
+  `)
 });
-
-
 
 app.doc("/doc", {
   openapi: "3.0.0",
   info: {
     version: "0.0.1",
-    title: "Kanbased API",
+    title: "Hono + Drizzle API",
   },
 });
 
@@ -71,8 +84,6 @@ app.get(
 const routes = [
   todosRouter,
 ];
-
-
 
 routes.forEach((route) => {
   app.route("/api", route);

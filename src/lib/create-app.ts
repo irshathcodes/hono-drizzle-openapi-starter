@@ -15,14 +15,16 @@ export default function createApp() {
   appRouter.use(
     "/*",
     cors({
-      origin: env.FE_ORIGIN,
+      origin: env.NODE_ENV === "production" ? env.FE_ORIGIN : "*",
       credentials: true,
     })
   );
 
-  appRouter.use(csrf({ origin: env.FE_ORIGIN }));
-  appRouter.use(pinoLogger());
+  appRouter.use(
+    csrf({ origin: env.NODE_ENV === "production" ? env.FE_ORIGIN : "*" })
+  );
 
+  appRouter.use(pinoLogger());
 
   appRouter.notFound((c) => {
     return c.json(
