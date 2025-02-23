@@ -7,18 +7,8 @@ export declare global {
       DB_NAME: string;
       DB_PORT: string;
       DATABASE_URL: string;
-      GOOGLE_CLIENT_ID: string;
-      GOOGLE_CLIENT_SECRET: string;
-      GITHUB_CLIENT_ID: string;
-      GITHUB_CLIENT_SECRET: string;
       FE_ORIGIN: string;
       BE_PORT: string;
-      RESEND_API_KEY: string;
-      S3_ACCESS_KEY_ID: string;
-      S3_SECRET_ACCESS_KEY: string;
-      S3_BUCKET_NAME: string;
-      S3_ENDPOINT: string;
-      PUBLIC_IMAGE_DOMAIN: string;
     }
   }
 }

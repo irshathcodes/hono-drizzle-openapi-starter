@@ -1,120 +1,98 @@
-# Hono Drizzle Starter Kit 🚀
+# Hono OpenAPI Starter Kit
 
-A modern, type-safe backend starter kit built with Hono.js and Drizzle ORM. This template provides a robust foundation for building scalable Node.js applications with PostgreSQL.
+A minimal, type-safe REST API starter kit built with Hono, OpenAPI, Drizzle ORM, PostgreSQL for database. This starter demonstrates how to build fully type-safe APIs with automatic OpenAPI spec generation and beautiful documentation.
 
-## 🌟 Features Included
+## Prerequisites
 
-- **Ultra-fast Web Framework** - Built with [Hono.js](https://hono.dev/), optimized for edge computing
-- **Type-safe Database Operations** - Powered by [Drizzle ORM](https://orm.drizzle.team/) for maximum type safety
-- **Robust Database System** - Using [PostgreSQL](https://www.postgresql.org/) for reliable data storage
-- **OpenAPI Documentation** - Implemented with [Zod Open](https://www.postgresql.org/) for API specifications
-- **Schema Validation** - Utilizing [Zod](https://zod.dev/) for TypeScript-first data validation
-- **Beautiful API Documentation** - Generated with [Scalar](https://scalar.com/) for comprehensive API references
-- **High-Performance Logging** - Implemented using [Pino](https://getpino.io/), a super fast JSON logger
-- **Local Development Environment** - Containerized with [Docker](https://www.docker.com/) for consistent development
-- **File Storage** - Cloud storage capabilities through AWS S3 integration
-- **User Authentication** - Secure authentication system implemented with better-auth
-- **Email Services** - Reliable email delivery integrated through Resend
-
-## 📋 Prerequisites
-
-- Node.js 22.x or higher
+- Node.js >= 22
 - pnpm
-- Docker and Docker Compose (for local development)
+- Docker and Docker Compose
+- Git
 
-## 🚀 Getting Started
+## Features
 
-1. **Clone the repository**
+- 🔒 **Full Type Safety**: End-to-end type safety from database to API endpoints using TypeScript
+- 📚 **OpenAPI Integration**: Automatic OpenAPI specification generation with Hono OpenAPI
+- 🎯 **Simple Example**: Includes a todo app API showcasing best practices
+- 🔍 **API Documentation**: Built-in Scalar documentation
+- 🛠 **Modern Stack**:
+  - [Hono](https://hono.dev/) - Ultrafast web framework
+  - [Drizzle ORM](https://orm.drizzle.team/) - TypeScript ORM
+  - [@hono/zod-openapi](https://github.com/honojs/middleware/tree/main/packages/zod-openapi) - OpenAPI integration
+  - [Zod](https://zod.dev/) - TypeScript-first schema validation
 
-   ```bash
-   git clone <repository-url>
-   cd hono-drizzle-starter
-   ```
+## Quick Start
 
-2. **Install dependencies**
+```bash
+# Clone the repository
+git clone https://github.com/irshathcodes/hono-drizzle-openapi-starter
 
-   ```bash
-   pnpm install
-   ```
+# Navigate to project directory
+cd hono-drizzle-starter
 
-3. **Set up environment variables**
-   Copy the `.env.example` file to `.env` and fill in your configuration:
+# Install dependencies
+pnpm install
 
-   ```bash
-   cp .env.example .env
-   ```
+# Set up your environment variables
+cp .env.example .env
 
-4. **Start the development database**
+# Start the development database
+pnpm dev:db:start
 
-   ```bash
-   pnpm dev:db:start
-   ```
+# Run migrations
+pnpm dev:db:migrate
 
-5. **Run database migrations**
+# Run the development server
+pnpm dev
 
-   ```bash
-   pnpm db:migrate
-   ```
+# Optional: Seed the database with sample data
+pnpm dev:db:seed
+```
 
-6. **Start the development server**
-   ```bash
-   pnpm dev
-   ```
+## API Documentation
 
-The server will be running at `http://localhost:3000`
+Once the server is running, you can access:
 
-## 📚 API Documentation
+- OpenAPI documentation at: `http://localhost:3000/doc`
+- Scalar API Reference at: `http://localhost:3000/reference`
 
-- OpenAPI/Swagger UI: `http://localhost:3000/doc`
-- Scalar API Reference: `http://localhost:3000/reference`
-
-## 🛠️ Available Scripts
-
-- `pnpm dev` - Start development server with hot reload
-- `pnpm build` - Build for production
-- `pnpm start` - Start production server
-- `pnpm typecheck` - Run TypeScript type checking
-- `pnpm dev:db:start` - Start development database
-- `pnpm dev:db:delete` - Remove development database
-- `pnpm dev:db:seed` - Seed the database with sample data
-- `pnpm dev:db:reset` - Reset the database
-- `pnpm db:migrate` - Run database migrations
-- `pnpm db:studio` - Open Drizzle Studio
-- `pnpm db:push` - Push schema changes to database
-- `pnpm db:generate` - Generate migration files
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
-├── api/           # API routes and handlers
-├── db/            # Database configuration and migrations
-├── lib/           # Shared utilities and helpers
-├── middlewares/   # Custom middleware functions
-├── use-cases/     # Business logic and use cases
-├── app.ts         # Application setup
-└── index.ts       # Entry point
+├── api/                  # API routes and handlers
+│   └── todos/           # Todo API implementation
+├── db/                  # Database configuration and schemas
+│   └── schema/         # Drizzle schema definitions
+├── lib/                 # Shared utilities and helpers
+└── use-cases/          # Business logic layer
 ```
 
-## 🔒 Environment Variables
+## Key Benefits
 
-Required environment variables:
+1. **Type Safety**: Automatic type inference from your database schema to API endpoints
+2. **Documentation**: OpenAPI spec is generated automatically from your route definitions
+3. **Validation**: Request/response validation using Zod schemas
+4. **Developer Experience**: Great DX with TypeScript autocompletion and inline documentation
 
-- `DATABASE_URL` - PostgreSQL connection string
-- `AWS_ACCESS_KEY_ID` - AWS access key for S3
-- `AWS_SECRET_ACCESS_KEY` - AWS secret key for S3
-- `AWS_REGION` - AWS region
-- `AWS_BUCKET_NAME` - S3 bucket name
-- `RESEND_API_KEY` - Resend API key for email service
+## Todos
 
-## 🤝 Contributing
+- [ ] Authentication using [Better Auth](https://better-auth.com)
+- [ ] S3 integration for file uploads
+- [ ] Stripe integration for payment processing
+- [ ] Generic RBAC (Role-Based Access Control) permissions system
+- [ ] Email integration for sending emails using [Resend](https://resend.com)
+- [ ] Linting and formatting
+- [ ] Testing
+
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📝 License
+## Credits
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This starter kit is inspired by [CJ's hono-open-api-starter](https://github.com/w3cj/hono-open-api-starter) with modifications
 
-## 🙏 Acknowledgments
+## License
 
-- [w3cj](https://github.com/w3cj/hono-open-api-starter) for the inspiration
+MIT
